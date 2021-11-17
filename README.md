@@ -26,7 +26,7 @@ bin/hdfs dfs -cat output/*
 1. Cкачать файлы с помощью git clone
 ```
 cd $HADOOP_PREFIX
-git clone 
+git clone https://github.com/Akashi23/hadoop-problems
 ```
 
 2. Попробовать положить свои файлы в HDFS
