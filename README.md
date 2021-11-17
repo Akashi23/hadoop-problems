@@ -48,4 +48,12 @@ bin/hdfs dfs -cat /Hadoop_File/input/start.txt | ./hadoop-problems/mapper.py | s
 cat output
 ```
 
-6. 
+6. Map Reduce с данными рандомных чисел с выводом суммы:
+```
+sudo chmod +x hadoop-problems/generator.py  hadoop-problems/map.py  hadoop-problems/reduce.py
+
+hadoop-problems/generator.py | hadoop-problems/map.py | hadoop-problems/reduce.py
+```
+
+7. Записать Сумму в файл и отправить его в Hadoop HDFS
+8. Изменить Reduce файл с помощью `nano hadoop-problems/reduce.py` чтобы сделать print для минимума из списка рандомных значении
