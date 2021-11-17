@@ -18,4 +18,4 @@ for line in input_stream:
         # write the results to STDOUT (standard output);
         # what we output here will be the input for the
         # Reduce step, i.e. the input for reducer.py
-        print(word.encode('utf-8')+'\t'+'1')
+        print('{}\t1'.format(word.encode('utf-8')))

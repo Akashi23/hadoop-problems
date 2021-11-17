@@ -29,7 +29,7 @@ for line in input_stream:
     if current_word == word:
         current_count += count
     else:
-        if current_word:
+        if current_word and current_word is not None:
             # write result to STDOUT
             print('{}\t{}'.format(current_word.encode('utf-8'), current_count))
         current_count = count
