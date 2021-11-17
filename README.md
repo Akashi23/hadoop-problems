@@ -33,13 +33,13 @@ git clone https://github.com/Akashi23/hadoop-problems
 ```
 ls hadoop-problems
 # чтобы увидеть какой файл вы хотите положить в HDFS
-bin/hdfs dfs -mkdir /Hadoop_File
+bin/hdfs dfs -mkdir -p /Hadoop_File/input
 bin/hdfs dfs -copyFromLocal ./hadoop-problems/Adept.txt /Hadoop_File/input/
 ```
 
 3. Выполнить MapReduce с помощью Python:
 ```
-bin/hadoop jar /usr/lib/hadoop-2.6.0/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar -file ./hadoop-problems/mapper.py -mapper mapper.py -file   ./hadoop-problems/reducer.py -reducer reducer.py -input /Hadoop_File/input -output /Hadoop_File/output
+bin/hadoop jar ./share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar -file ./hadoop-problems/mapper.py -mapper mapper.py -file   ./hadoop-problems/reducer.py -reducer reducer.py -input /Hadoop_File/input -output /Hadoop_File/output
 ```
 
 4. Посмотреть результаты:
