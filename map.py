@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys
 # reading entire line from STDIN (standard input)
 for line in sys.stdin:

@@ -10,16 +10,6 @@
     - `sudo apt install nano`
     - `sudo apt install git -y`
 
-- Для протестирование работает ли MapReduce
-```
-cd $HADOOP_PREFIX
-bin/hdfs dfs -cat input/*
-
-bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.0.jar grep input output 'dfs[a-z.]+'
-
-# check the output
-bin/hdfs dfs -cat output/*
-```
 
 # Задание
 
