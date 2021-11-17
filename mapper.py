@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
   
 # import sys because we need to read and write data to STDIN and STDOUT
+import io
 import sys
-  
+
+input_stream = io.TextIOWrapper(sys.stdin.buffer, encoding='utf-8')
 # reading entire line from STDIN (standard input)
-for line in sys.stdin:
+for line in input_stream:
     # to remove leading and trailing whitespace
     line = line.strip()
     # split the line into words
