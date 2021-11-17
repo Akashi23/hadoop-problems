@@ -8,7 +8,7 @@
 - После вводите еще несколько команд:
     - `sudo apt update`
     - `sudo apt install nano`
-    - `sudo apt install git`
+    - `sudo apt install git -y`
 
 - Для протестирование работает ли MapReduce
 ```
@@ -34,17 +34,28 @@ git clone https://github.com/Akashi23/hadoop-problems
 ls hadoop-problems
 # чтобы увидеть какой файл вы хотите положить в HDFS
 bin/hdfs dfs -mkdir -p /Hadoop_File/input
-bin/hdfs dfs -copyFromLocal ./hadoop-problems/Adept.txt /Hadoop_File/input/
+bin/hdfs dfs -copyFromLocal ./hadoop-problems/start.txt /Hadoop_File/input/
 ```
 
-3. Выполнить MapReduce с помощью Python:
+3. Попробовать вытащить свои файлы в HDFS
+
 ```
-bin/hadoop jar ./share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar -file ./hadoop-problems/mapper.py -mapper mapper.py -file   ./hadoop-problems/reducer.py -reducer reducer.py -input /Hadoop_File/input -output /Hadoop_File/output
+bin/hdfs dfs -copyToLocal /Hadoop_File/input/start.txt start.txt
+
+cat start.txt
 ```
 
-4. Посмотреть результаты:
+4. Выполнить MapReduce с помощью Python:
 ```
-bin/hdfs dfs -cat /Hadoop_File/output
+# Даем права для выполнения
+sudo chmod +x ./hadoop-problems/mapper.py ./hadoop-problems/reducer.py
+
+bin/hdfs dfs -cat /Hadoop_File/input/start.txt | ./hadoop-problems/mapper.py | sort | ./hadoop-problems/reducer.py > output
 ```
 
-5. 
+5. Посмотреть результаты:
+```
+cat output
+```
+
+6. 
