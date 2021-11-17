@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
   
 from operator import itemgetter
+import io
 import sys
+
+input_stream = io.TextIOWrapper(sys.stdin.buffer, encoding='utf-8')
   
 current_word = None
 current_count = 0
 word = None
   
 # read the entire line from STDIN
-for line in sys.stdin:
+for line in input_stream:
     # remove leading and trailing whitespace
     line = line.strip()
     # slpiting the data on the basis of tab we have provided in mapper.py
@@ -28,10 +31,10 @@ for line in sys.stdin:
     else:
         if current_word:
             # write result to STDOUT
-            print('{}\t{}'.format(current_word, current_count))
+            print('{}\t{}'.format(current_word.encode('utf-8'), current_count))
         current_count = count
         current_word = word
   
 # do not forget to output the last word if needed!
 if current_word == word:
-    print('{}\t{}'.format(current_word, current_count))
+    print('{}\t{}'.format(current_word.encode('utf-8'), current_count))
